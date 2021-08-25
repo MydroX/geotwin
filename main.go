@@ -1,5 +1,7 @@
 package main
 
+import "github.com/MydroX/geotwin/internal/server"
+
 func main() {
-	println("Hello, world.")
+	server.Run()
 }
