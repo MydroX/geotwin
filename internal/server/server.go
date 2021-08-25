@@ -97,7 +97,24 @@ func getDistance(c *gin.Context) {
 }
 
 func getDuration(c *gin.Context) {
+	var totalDuration float64
 
+	data, err := getGeoData()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error(), "code": http.StatusInternalServerError})
+		return
+	}
+
+	for _, feature := range data.Features {
+		for i := len(feature.Geometry.Coordinates); i > 1; i-- {
+			totalDuration += feature.Geometry.Coordinates[i-1][3] - feature.Geometry.Coordinates[i-2][3]
+		}
+	}
+
+	// seconds to nanoseconds
+	res := uint64(totalDuration * math.Pow10(9))
+
+	c.JSON(http.StatusOK, gin.H{"totalDuration": res})
 }
 
 func getGeoData() (*geoFeatures, error) {
