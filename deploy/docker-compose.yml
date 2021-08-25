@@ -1,0 +1,19 @@
+version: "3.3"
+services: 
+  geotwin:
+    build:
+      args: 
+        WORK_DIR: /go/src/github.com/MydroX/geotwin
+    container_name: geotwin
+    ports:
+      - 8080:8080
+      - 80:3000
+    volumes: 
+      - ../.:/go/src/github.com/MydroX/geotwin
+    networks: 
+      - geotwin
+
+networks:
+  geotwin:
+    external: true
+  
