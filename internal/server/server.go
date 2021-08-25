@@ -45,16 +45,13 @@ func Run() {
 }
 
 func getPath(c *gin.Context) {
-	file, err := os.Open("./path.geojson")
+	var featuresCollection *geoFeatures
+
+	featuresCollection, err := getGeoData()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error(), "code": http.StatusInternalServerError})
 		return
 	}
-
-	var featuresCollection geoFeatures
-
-	byteValue, _ := ioutil.ReadAll(file)
-	json.Unmarshal(byteValue, &featuresCollection)
 
 	c.JSON(http.StatusOK, featuresCollection)
 }
@@ -65,4 +62,18 @@ func getDistance(c *gin.Context) {
 
 func getDuration(c *gin.Context) {
 
+}
+
+func getGeoData() (*geoFeatures, error) {
+	file, err := os.Open("./path.geojso")
+	if err != nil {
+		return nil, err
+	}
+
+	var featuresCollection geoFeatures
+
+	byteValue, _ := ioutil.ReadAll(file)
+	json.Unmarshal(byteValue, &featuresCollection)
+
+	return &featuresCollection, nil
 }
