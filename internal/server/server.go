@@ -3,11 +3,13 @@ package server
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"math"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 const (
@@ -40,6 +42,14 @@ type coordinates struct {
 }
 
 func Run() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Server error: %v", err)
+	}
+
+	log.Println("Starting application...")
+
+	gin.SetMode(os.Getenv("GIN_MODE"))
 	r := gin.Default()
 
 	r.GET("/getPath", getPath)
