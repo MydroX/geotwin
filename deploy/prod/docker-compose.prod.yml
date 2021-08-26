@@ -1,6 +1,7 @@
 version: "3.3"
 services: 
   geotwin:
+    image: mydrox/geotwin:1.0.0
     build:
       context: ../
       dockerfile: deploy/prod/Dockerfile
