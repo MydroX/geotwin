@@ -1,12 +1,11 @@
-FROM golang:1.16.0-alpine3.13
+FROM golang:1.17.0
 
-ARG WORK_DIR
+RUN mkdir -p /app
 
-WORKDIR $WORK_DIR
+WORKDIR /app
 
-COPY . .
+ADD . /app
 
-RUN apk add --no-cache ca-certificates \
-    bash \
-    sudo \
-    git
+RUN go build ./main.go
+
+CMD [ "./main"]
