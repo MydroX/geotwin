@@ -63,11 +63,12 @@ func getPath(c *gin.Context) {
 	var featuresCollection *geoFeatures
 
 	featuresCollection, err := getGeoData()
+
+	c.Header("Access-Control-Allow-Origin", "*")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error(), "code": http.StatusInternalServerError})
 		return
 	}
-
 	c.JSON(http.StatusOK, featuresCollection)
 }
 
@@ -75,6 +76,8 @@ func getDistance(c *gin.Context) {
 	var totalDist float64
 
 	data, err := getGeoData()
+
+	c.Header("Access-Control-Allow-Origin", "*")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error(), "code": http.StatusInternalServerError})
 		return
@@ -110,6 +113,8 @@ func getDuration(c *gin.Context) {
 	var totalDuration float64
 
 	data, err := getGeoData()
+
+	c.Header("Access-Control-Allow-Origin", "*")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error(), "code": http.StatusInternalServerError})
 		return
