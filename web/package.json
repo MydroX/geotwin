@@ -1,0 +1,15 @@
+{
+  "name": "geotwin-web",
+  "version": "1.0.0",
+  "description": "Web part of Geotwin's technical test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MydroX",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "http-server": "^13.0.1"
+  }
+}
