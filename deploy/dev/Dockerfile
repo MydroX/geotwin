@@ -11,7 +11,7 @@ RUN apk add --no-cache ca-certificates \
     sudo \
     git 
 
-RUN go get -u github.com/cosmtrek/air
-RUN go get -u github.com/mgechev/revive
+RUN go install github.com/cosmtrek/air@v1.27.3
+RUN go install github.com/mgechev/revive@v1.1.1
 
-ENTRYPOINT [ "/go/src/github.com/MydroX/geotwin/deploy/dev/entrypoint.sh" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
