@@ -19,6 +19,8 @@ services:
     build:
       context: ../
       dockerfile: deploy/dev/web/Dockerfile
+    volumes: 
+    - ../web/.:/app
     ports: 
       - 8000:8000
     networks: 
