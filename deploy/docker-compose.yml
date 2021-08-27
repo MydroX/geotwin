@@ -13,6 +13,17 @@ services:
     networks: 
       - geotwin
 
+  geotwin-web:
+    image: mydrox/geotwin-web:dev.1.0.0
+    container_name: geotwin-web
+    build:
+      context: ../
+      dockerfile: deploy/dev/web/Dockerfile
+    ports: 
+      - 8000:8000
+    networks: 
+      - geotwin
+
 networks:
   geotwin:
     external: true
