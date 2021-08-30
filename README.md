@@ -5,7 +5,15 @@ Technical test for Geotwin
 ## Install project
 
 ```sh
-mkdir -p ~/go/src/github.com/MydroX && git clone https://github.com/MydroX/geotwin.git
+mkdir -p ~/go/src/github.com/MydroX
+```
+
+```sh
+cd ~/go/src/github.com/MydroX
+```
+
+```sh
+git clone https://github.com/MydroX/geotwin.git
 ```
 
 ```sh
