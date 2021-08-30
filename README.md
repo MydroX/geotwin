@@ -12,16 +12,18 @@ mkdir -p ~/go/src/github.com/MydroX && git clone https://github.com/MydroX/geotw
 cd ~/go/src/github.com/MydroX/geotwin
 ```
 
-```sh
-echo "GIN_MODE=release" >> .env
-```
-
 Install dev
+```sh
+echo "GIN_MODE=debug" >> .env
+```
 ```sh
   docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.dev.yml build
 ```
 
 Install prod
+```sh
+echo "GIN_MODE=release" >> .env
+```
 ```sh
   docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.prod.yml build
 ```
