@@ -4,26 +4,38 @@ Technical test for Geotwin
 
 ## Install project
 
+```sh
+mkdir -p ~/go/src/github.com/MydroX && git clone https://github.com/MydroX/geotwin.git
+```
+
+```sh
+cd ~/go/src/github.com/MydroX/geotwin
+```
+
+```sh
+echo "GIN_MODE=release" >> .env
+```
+
 Install dev
 ```sh
-  docker-compose -f deploy/docker-compose.dev.yml -f deploy/dev/docker-compose.dev.yml build
+  docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.dev.yml build
 ```
 
 Install prod
 ```sh
-  docker-compose -f deploy/docker-compose.prod.yml -f deploy/dev/docker-compose.prod.yml build
+  docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.prod.yml build
 ```
 
 ## Run project
 
 Run dev
 ```sh
-  docker-compose -f deploy/docker-compose.dev.yml -f deploy/dev/docker-compose.dev.yml up
+  docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.dev.yml up
 ```
 
 Run prod
 ```sh
-  docker-compose -f deploy/docker-compose.prod.yml -f deploy/dev/docker-compose.prod.yml up
+  docker-compose -f deploy/docker-compose.yml -f deploy/dev/docker-compose.prod.yml up
 ```
 
 ## Endpoints
