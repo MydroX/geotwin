@@ -1,6 +1,30 @@
 # Geotwin
 
 Technical test for Geotwin
+ 
+Le format de chaque coordonnées est un tableau de 4 éléments correspondant à :
+[
+            longitude,
+            latitude,
+            altitude,
+            timestamp
+]
+
+L'objectif est de créer une application Web exposant les endpoint REST suivants :
+
+http://<url>/getPath (retourne la donnée telle quelle au format json)
+http://<url>/getDistance (retourne la distance totale du parcours)
+http://<url>/getDuration  (retourne la durée totale du déplacement, en nanosecondes)
+
+La distance et durée doivent être calculées lors de l'appel au endpoint.
+
+Vous pouvez développer cette application dans le langage de votre choix. Le résultat du test doit être fourni sur un dépôt Github contenant un README expliquant comment construire et lancer le serveur et l'adresse exacte de chaque endpoint.
+
+Bonus 1 : l'application est buildée avec Docker et fournie sur Dockerhub en plus du code sur Github
+
+Bonus 2 : vous fournissez également une application Javascript capable d'afficher sur une carte le déplacement via un appel à votre endpoint getPath (comme sur le serveur web : github + README + éventuellement dockerhub)
+
+Bonus 3 : les deux applications peuvent être lancées ensemble via docker compose
 
 ## Install project
 
